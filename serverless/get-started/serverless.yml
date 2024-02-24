@@ -1,0 +1,19 @@
+service: hello-world
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  profile: helloWorld
+  runtime: nodejs18.x
+
+plugins:
+  - serverless-offline
+
+
+functions:
+  helloWorld:
+    handler: handler.helloWorld
+    events:
+      - httpApi:
+          path: /helloWorld
+          method: post
